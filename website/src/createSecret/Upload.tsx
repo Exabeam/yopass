@@ -31,7 +31,7 @@ const Upload = () => {
       generateDecryptionKey: true,
       secret: '',
       password: '',
-      expiration: '3600',
+      expiration: '604800',
       onetime: true,
     },
   });
