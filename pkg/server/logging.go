@@ -48,7 +48,7 @@ func httpLogFormatter(logger *zap.Logger) func(io.Writer, handlers.LogFormatterP
 			zap.String("protocol", req.Proto),
 			zap.Int("responseStatus", params.StatusCode),
 			zap.Int("responseSize", params.Size),
-			zap.String("x-forwarded-for", req.Header.Get("X-Forwarded-For"))
+			zap.String("x-forwarded-for", req.Header.Get("X-Forwarded-For")),
 		)
 	}
 }
