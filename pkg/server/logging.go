@@ -5,6 +5,7 @@ import (
 	"go.uber.org/zap"
 	"io"
 	"net"
+	"strings"
 )
 
 func httpLogFormatter(logger *zap.Logger) func(io.Writer, handlers.LogFormatterParams) {
@@ -27,6 +28,8 @@ func httpLogFormatter(logger *zap.Logger) func(io.Writer, handlers.LogFormatterP
 			host = req.RemoteAddr
 		}
 
+		client := strings.Join(req.Header.Values("X-Forwarded-For"),",")
+		user := req.Header.Get("X-Goog-Authenticated-User-Email")
 		uri := req.RequestURI
 
 		// Requests using the CONNECT method over HTTP/2.0 must use
@@ -35,10 +38,11 @@ func httpLogFormatter(logger *zap.Logger) func(io.Writer, handlers.LogFormatterP
 		if req.ProtoMajor == 2 && req.Method == "CONNECT" {
 			uri = req.Host
 		}
+
 		if uri == "" {
 			uri = params.URL.RequestURI()
 		}
-
+		
 		logger.Info(
 			"Request handled",
 			zap.String("host", host),
@@ -48,7 +52,8 @@ func httpLogFormatter(logger *zap.Logger) func(io.Writer, handlers.LogFormatterP
 			zap.String("protocol", req.Proto),
 			zap.Int("responseStatus", params.StatusCode),
 			zap.Int("responseSize", params.Size),
-			zap.String("x-forwarded-for", req.Header.Get("X-Forwarded-For")),
+			zap.String("x-forwarded-for", client),
+			zap.String("user", user),
 		)
 	}
 }
