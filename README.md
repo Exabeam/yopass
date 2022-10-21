@@ -177,4 +177,3 @@ Yopass has third party support for other languages. That means you can write tra
 
 Here's a list of available translations:
 - [German](https://github.com/Anturix/yopass-german) 
-
