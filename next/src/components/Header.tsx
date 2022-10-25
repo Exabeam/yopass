@@ -17,7 +17,7 @@ export const Header = () => {
             <Box
               sx={{
                 verticalAlign: 'middle',
-                paddingLeft: '5px',
+                paddingRight: '10px',
                 width: '40px',
                 height: '40px',
               }}
