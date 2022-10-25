@@ -25,7 +25,7 @@ export const Header = () => {
               component="img"
               height="40"
               alt=""
-              src="yopass.svg"
+              src="Exabeam-logo-emblem-green-010522.svg.svg"
             />
           </Typography>
         </Link>

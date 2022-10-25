@@ -1,6 +1,6 @@
 {
-  "short_name": "Yopass",
-  "name": "Yopass",
+  "short_name": "EISST",
+  "name": "Exabeam Internal Secret Sharing Tool (EISST)",
   "icons": [
     {
       "src": "favicon.ico",

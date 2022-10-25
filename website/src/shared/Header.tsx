@@ -14,7 +14,7 @@ export const Header = () => {
       <Toolbar>
         <Link href={home} color="inherit" underline="none">
           <Typography variant="h6" component="div">
-            Yopass
+            Exabeam Internal Secret Sharing Tool (EISST)
             <Box
               sx={{
                 verticalAlign: 'middle',
@@ -25,7 +25,7 @@ export const Header = () => {
               component="img"
               height="40"
               alt=""
-              src="yopass.svg"
+              src="Exabeam-logo-emblem-green-010522.svg"
             />
           </Typography>
         </Link>
